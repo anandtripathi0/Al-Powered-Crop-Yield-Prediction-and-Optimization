@@ -1,255 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CropWise AI - Smart Farming Platform</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <div class="text-2xl font-bold text-green-600">🌱 Crop Enhance-AI</div>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-700 hover:text-green-600 transition-colors">Features</a>
-                    <a href="#demo" class="text-gray-700 hover:text-green-600 transition-colors">Demo</a>
-                    <a href="#impact" class="text-gray-700 hover:text-green-600 transition-colors">Impact</a>
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">Get Started</button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="gradient-bg text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl font-bold mb-6">Revolutionizing Agriculture with AI</h1>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Predict crop yields, optimize resources, and increase productivity by 10%+ through data-driven insights tailored for small-scale farmers worldwide.</p>
-            <div class="flex justify-center space-x-4">
-                <button onclick="scrollToDemo()" class="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">Try Demo</button>
-                <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">Learn More</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Key Features -->
-    <section id="features" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Intelligent Farming Solutions</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl border border-green-200">
-                    <div class="text-4xl mb-4">📊</div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">Yield Prediction</h3>
-                    <p class="text-gray-600">Advanced ML models analyze historical data, weather patterns, and soil metrics to predict crop yields with 85%+ accuracy.</p>
-                </div>
-                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl border border-blue-200">
-                    <div class="text-4xl mb-4">💧</div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">Smart Irrigation</h3>
-                    <p class="text-gray-600">Optimize water usage with AI-driven irrigation recommendations based on soil moisture and weather forecasts.</p>
-                </div>
-                <div class="card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-xl border border-yellow-200">
-                    <div class="text-4xl mb-4">🌍</div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">Regional Support</h3>
-                    <p class="text-gray-600">Multi-language interface supporting local dialects and region-specific crop recommendations for global accessibility.</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CropWise AI - Smart Farming Platform</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="bg-gray-50">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <div class="text-2xl font-bold text-teal-600">🌱
+                            CropWise AI</div>
+                    </div>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#features"
+                            class="text-gray-700 hover:text-teal-600 transition-colors">Features</a>
+                        <a href="#demo"
+                            class="text-gray-700 hover:text-teal-600 transition-colors">Demo</a>
+                        <a href="#impact"
+                            class="text-gray-700 hover:text-teal-600 transition-colors">Impact</a>
+                        <button
+                            class="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors">Get
+                            Started</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
 
-    <!-- Interactive Demo -->
-    <section id="demo" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Live Demo Platform</h2>
-            
-            <!-- Demo Dashboard -->
-            <div class="bg-white rounded-2xl shadow-xl p-8">
-                <div class="grid lg:grid-cols-2 gap-8">
-                    <!-- Input Panel -->
-                    <div class="space-y-6">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Farm Configuration</h3>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Crop Type</label>
-                            <select id="cropSelect" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                                <option value="wheat">Wheat</option>
-                                <option value="rice">Rice</option>
-                                <option value="corn">Corn</option>
-                                <option value="tomato">Tomato</option>
-                            </select>
+        <!-- Hero Section -->
+        <section class="gradient-bg text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-5xl font-bold mb-6">Revolutionizing Agriculture
+                    with AI</h1>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">Predict crop yields,
+                    optimize resources, and increase productivity by 10%+
+                    through data-driven insights tailored for small-scale
+                    farmers worldwide.</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="scrollToDemo()"
+                        class="bg-white text-teal-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">Try
+                        Demo</button>
+                    <button
+                        class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-teal-600 transition-colors">Learn
+                        More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section id="features" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2
+                    class="text-4xl font-bold text-center mb-16 text-gray-800">Intelligent
+                    Farming Solutions</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div
+                        class="card-hover bg-gradient-to-br from-teal-50 to-teal-100 p-8 rounded-xl border border-teal-200">
+                        <div class="text-4xl mb-4">📊</div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Yield
+                            Prediction</h3>
+                        <p class="text-gray-600">Advanced ML models analyze
+                            historical data, weather patterns, and soil metrics
+                            to predict crop yields with 85%+ accuracy.</p>
+                    </div>
+                    <div
+                        class="card-hover bg-gradient-to-br from-cyan-50 to-cyan-100 p-8 rounded-xl border border-cyan-200">
+                        <div class="text-4xl mb-4">💧</div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">Smart
+                            Irrigation</h3>
+                        <p class="text-gray-600">Optimize water usage with
+                            AI-driven irrigation recommendations based on soil
+                            moisture and weather forecasts.</p>
+                    </div>
+                    <div
+                        class="card-hover bg-gradient-to-br from-emerald-50 to-emerald-100 p-8 rounded-xl border border-emerald-200">
+                        <div class="text-4xl mb-4">🌍</div>
+                        <h3
+                            class="text-xl font-bold mb-4 text-gray-800">Regional
+                            Support</h3>
+                        <p class="text-gray-600">Multi-language interface
+                            supporting local dialects and region-specific crop
+                            recommendations for global accessibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section id="demo" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2
+                    class="text-4xl font-bold text-center mb-16 text-gray-800">Live
+                    Demo Platform</h2>
+
+                <!-- Demo Dashboard -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <!-- Input Panel -->
+                        <div class="space-y-6">
+                            <h3
+                                class="text-2xl font-bold text-gray-800 mb-6">Farm
+                                Configuration</h3>
+
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-2">Crop
+                                    Type</label>
+                                <select id="cropSelect"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                                    <option value="wheat">Wheat</option>
+                                    <option value="rice">Rice</option>
+                                    <option value="corn">Corn</option>
+                                    <option value="tomato">Tomato</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-2">Farm
+                                    Size (acres)</label>
+                                <input type="number" id="farmSize" value="5"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                            </div>
+
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-2">Region</label>
+                                <select id="regionSelect"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                                    <option value="north-india">North
+                                        India</option>
+                                    <option value="midwest-us">Midwest
+                                        US</option>
+                                    <option value="southeast-asia">Southeast
+                                        Asia</option>
+                                    <option value="east-africa">East
+                                        Africa</option>
+                                </select>
+                            </div>
+
+                            <button onclick="generatePrediction()"
+                                class="w-full bg-teal-600 text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors">
+                                Generate AI Prediction
+                            </button>
                         </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Farm Size (acres)</label>
-                            <input type="number" id="farmSize" value="5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+
+                        <!-- Results Panel -->
+                        <div class="space-y-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">AI
+                                Predictions & Recommendations</h3>
+
+                            <!-- Yield Prediction -->
+                            <div
+                                class="bg-gradient-to-r from-teal-50 to-teal-100 p-6 rounded-xl border border-teal-200">
+                                <h4
+                                    class="font-bold text-teal-800 mb-2">Expected
+                                    Yield</h4>
+                                <div class="text-3xl font-bold text-teal-600"
+                                    id="yieldPrediction">4.2 tons/acre</div>
+                                <div class="text-sm text-teal-700 mt-1"
+                                    id="yieldIncrease">+12% vs last season</div>
+                            </div>
+
+                            <!-- Recommendations -->
+                            <div class="space-y-4" id="recommendations">
+                                <div
+                                    class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                                    <h5 class="font-semibold text-blue-800">💧
+                                        Irrigation</h5>
+                                    <p class="text-blue-700 text-sm">Reduce
+                                        watering by 15% - soil moisture
+                                        optimal</p>
+                                </div>
+                                <div
+                                    class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                                    <h5 class="font-semibold text-yellow-800">🌱
+                                        Fertilization</h5>
+                                    <p class="text-yellow-700 text-sm">Apply
+                                        nitrogen-rich fertilizer in 2 weeks</p>
+                                </div>
+                                <div
+                                    class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                                    <h5 class="font-semibold text-red-800">🐛
+                                        Pest Control</h5>
+                                    <p class="text-red-700 text-sm">Monitor for
+                                        aphids - high risk period
+                                        approaching</p>
+                                </div>
+                            </div>
+
+                            <!-- Weather Forecast -->
+                            <div class="weather-card text-white p-4 rounded-lg">
+                                <h5 class="font-semibold mb-3">7-Day Weather
+                                    Forecast</h5>
+                                <div class="grid grid-cols-7 gap-1 text-xs"
+                                    id="weatherForecast">
+                                    <div
+                                        class="text-center p-2 bg-white bg-opacity-20 rounded">
+                                        <div>Mon</div>
+                                        <div class="text-lg">☀️</div>
+                                        <div>28°C</div>
+                                    </div>
+                                    <div
+                                        class="text-center p-2 bg-white bg-opacity-20 rounded">
+                                        <div>Tue</div>
+                                        <div class="text-lg">🌧️</div>
+                                        <div>24°C</div>
+                                    </div>
+                                    <div
+                                        class="text-center p-2 bg-white bg-opacity-20 rounded">
+                                        <div>Wed</div>
+                                        <div class="text-lg">☁️</div>
+                                        <div>26°C</div>
+                                    </div>
+                                    <div
+                                        class="text-center p-2 bg-white bg-opacity-20 rounded">
+                                        <div>Thu</div>
+                                        <div class="text-lg">☀️</div>
+                                        <div>30°C</div>
+                                    </div>
+                                    <div
+                                        class="text-center p-2 bg-white bg-opacity-20 rounded">
+                                        <div>Fri</div>
+                                        <div class="text-lg">⛈️</div>
+                                        <div>22°C</div>
+                                    </div>
+                                    <div
+                                        class="text-center p-2 bg-white bg-opacity-20 rounded">
+                                        <div>Sat</div>
+                                        <div class="text-lg">🌤️</div>
+                                        <div>27°C</div>
+                                    </div>
+                                    <div
+                                        class="text-center p-2 bg-white bg-opacity-20 rounded">
+                                        <div>Sun</div>
+                                        <div class="text-lg">☀️</div>
+                                        <div>29°C</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Region</label>
-                            <select id="regionSelect" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                                <option value="north-india">North India</option>
-                                <option value="midwest-us">Midwest US</option>
-                                <option value="southeast-asia">Southeast Asia</option>
-                                <option value="east-africa">East Africa</option>
-                            </select>
+                    </div>
+
+                    <!-- Yield Chart -->
+                    <div class="mt-8 pt-8 border-t border-gray-200">
+                        <h4
+                            class="text-xl font-bold text-gray-800 mb-4">Projected
+                            vs Historical Yield</h4>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div
+                                class="flex items-end justify-between h-40 space-x-2"
+                                id="yieldChart">
+                                <div class="flex flex-col items-center">
+                                    <div class="chart-bar bg-gray-400 w-12 mb-2"
+                                        style="height: 60px;"></div>
+                                    <span
+                                        class="text-xs text-gray-600">2022</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="chart-bar bg-gray-400 w-12 mb-2"
+                                        style="height: 80px;"></div>
+                                    <span
+                                        class="text-xs text-gray-600">2023</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div
+                                        class="chart-bar bg-teal-500 w-12 mb-2 pulse-animation"
+                                        style="height: 100px;"></div>
+                                    <span
+                                        class="text-xs text-teal-600 font-semibold">2025
+                                        (Predicted)</span>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <button onclick="generatePrediction()" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
-                            Generate AI Prediction
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact & Technical Details -->
+        <section id="impact" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2
+                            class="text-4xl font-bold mb-6 text-gray-800">Measurable
+                            Impact</h2>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-green-100 p-3 rounded-full">
+                                    <span class="text-2xl">📈</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">10-15%
+                                        Yield Increase</h4>
+                                    <p class="text-gray-600">Data-driven
+                                        insights optimize farming practices</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-blue-100 p-3 rounded-full">
+                                    <span class="text-2xl">💧</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">20%
+                                        Water Savings</h4>
+                                    <p class="text-gray-600">Smart irrigation
+                                        reduces waste and costs</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-yellow-100 p-3 rounded-full">
+                                    <span class="text-2xl">🌍</span>
+                                </div>
+                                <div>
+                                    <h4
+                                        class="font-bold text-gray-800">Multi-Language
+                                        Support</h4>
+                                    <p class="text-gray-600">Accessible to
+                                        farmers in 15+ regional languages</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-2xl">
+                        <h3
+                            class="text-2xl font-bold mb-6 text-gray-800">Technical
+                            Architecture</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h5 class="font-semibold text-gray-800">🧠
+                                    Machine Learning</h5>
+                                <p class="text-sm text-gray-600">Neural networks
+                                    & regression models trained on 10M+ data
+                                    points</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h5 class="font-semibold text-gray-800">🌤️
+                                    Real-time Data</h5>
+                                <p class="text-sm text-gray-600">Weather APIs,
+                                    satellite imagery, IoT sensor
+                                    integration</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h5 class="font-semibold text-gray-800">📱
+                                    Cross-Platform</h5>
+                                <p class="text-sm text-gray-600">Progressive web
+                                    app works on any device, offline capable</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h5 class="font-semibold text-gray-800">🔒
+                                    Privacy-First</h5>
+                                <p class="text-sm text-gray-600">Local data
+                                    processing, encrypted communications</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="gradient-bg text-white py-20">
+            <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold mb-6">Ready to Transform
+                    Agriculture?</h2>
+                <p class="text-xl mb-8">Join thousands of farmers already using
+                    AI to increase their productivity and sustainability.</p>
+                <div class="flex justify-center space-x-4">
+                    <button
+                        class="bg-white text-teal-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">Start
+                        Free Trial</button>
+                    <button
+                        class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-teal-600 transition-colors">Contact
+                        Team</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Chatbot -->
+        <div class="chatbot-container">
+            <div id="chatbot"
+                class="bg-white rounded-lg shadow-2xl w-80 h-96 hidden flex-col">
+                <div
+                    class="bg-teal-600 text-white p-4 rounded-t-lg flex justify-between items-center">
+                    <div class="flex items-center space-x-2">
+                        <div
+                            class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="font-semibold">CropWise AI Assistant</span>
+                    </div>
+                    <button onclick="toggleChatbot()"
+                        class="text-white hover:text-gray-200">✕</button>
+                </div>
+                <div class="chat-messages flex-1 p-4 space-y-3 overflow-y-auto"
+                    id="chatMessages">
+                    <div class="bg-gray-100 p-3 rounded-lg max-w-xs">
+                        <p class="text-sm">👋 Hi! I'm your AI farming assistant.
+                            Ask me about crop yields, weather impacts, or
+                            farming optimization!</p>
+                    </div>
+                </div>
+                <div class="p-4 border-t">
+                    <div class="flex space-x-2">
+                        <input type="text" id="chatInput"
+                            placeholder="Ask about your crops..."
+                            class="flex-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm">
+                        <button onclick="sendMessage()"
+                            class="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors">
+                            <svg class="w-4 h-4" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
                         </button>
                     </div>
-                    
-                    <!-- Results Panel -->
-                    <div class="space-y-6">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">AI Predictions & Recommendations</h3>
-                        
-                        <!-- Yield Prediction -->
-                        <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
-                            <h4 class="font-bold text-green-800 mb-2">Expected Yield</h4>
-                            <div class="text-3xl font-bold text-green-600" id="yieldPrediction">4.2 tons/acre</div>
-                            <div class="text-sm text-green-700 mt-1" id="yieldIncrease">+12% vs last season</div>
-                        </div>
-                        
-                        <!-- Recommendations -->
-                        <div class="space-y-4" id="recommendations">
-                            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-                                <h5 class="font-semibold text-blue-800">💧 Irrigation</h5>
-                                <p class="text-blue-700 text-sm">Reduce watering by 15% - soil moisture optimal</p>
-                            </div>
-                            <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                                <h5 class="font-semibold text-yellow-800">🌱 Fertilization</h5>
-                                <p class="text-yellow-700 text-sm">Apply nitrogen-rich fertilizer in 2 weeks</p>
-                            </div>
-                            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                                <h5 class="font-semibold text-red-800">🐛 Pest Control</h5>
-                                <p class="text-red-700 text-sm">Monitor for aphids - high risk period approaching</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Weather Forecast -->
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h5 class="font-semibold text-gray-800 mb-2">7-Day Weather Impact</h5>
-                            <div class="flex justify-between text-sm">
-                                <span>☀️ Sunny (3 days)</span>
-                                <span>🌧️ Rain (2 days)</span>
-                                <span>☁️ Cloudy (2 days)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Yield Chart -->
-                <div class="mt-8 pt-8 border-t border-gray-200">
-                    <h4 class="text-xl font-bold text-gray-800 mb-4">Projected vs Historical Yield</h4>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <div class="flex items-end justify-between h-40 space-x-2" id="yieldChart">
-                            <div class="flex flex-col items-center">
-                                <div class="chart-bar bg-gray-400 w-12 mb-2" style="height: 60px;"></div>
-                                <span class="text-xs text-gray-600">2023</span>
-                            </div>
-                            <div class="flex flex-col items-center">
-                                <div class="chart-bar bg-gray-400 w-12 mb-2" style="height: 80px;"></div>
-                                <span class="text-xs text-gray-600">2024</span>
-                            </div>
-                            <div class="flex flex-col items-center">
-                                <div class="chart-bar bg-green-500 w-12 mb-2 pulse-animation" style="height: 100px;"></div>
-                                <span class="text-xs text-green-600 font-semibold">2025 (Predicted)</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <button id="chatToggle" onclick="toggleChatbot()"
+                class="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors flex items-center justify-center">
+                <!-- Robot emoji entity code -->
+                &#129302;
+            </button>
 
-    <!-- Impact & Technical Details -->
-    <section id="impact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold mb-6 text-gray-800">Measurable Impact</h2>
-                    <div class="space-y-6">
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-green-100 p-3 rounded-full">
-                                <span class="text-2xl">📈</span>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800">10-15% Yield Increase</h4>
-                                <p class="text-gray-600">Data-driven insights optimize farming practices</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-blue-100 p-3 rounded-full">
-                                <span class="text-2xl">💧</span>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800">20% Water Savings</h4>
-                                <p class="text-gray-600">Smart irrigation reduces waste and costs</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-yellow-100 p-3 rounded-full">
-                                <span class="text-2xl">🌍</span>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800">Multi-Language Support</h4>
-                                <p class="text-gray-600">Accessible to farmers in 15+ regional languages</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Technical Architecture</h3>
-                    <div class="space-y-4">
-                        <div class="bg-white p-4 rounded-lg shadow-sm">
-                            <h5 class="font-semibold text-gray-800">🧠 Machine Learning</h5>
-                            <p class="text-sm text-gray-600">Neural networks & regression models trained on 10M+ data points</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm">
-                            <h5 class="font-semibold text-gray-800">🌤️ Real-time Data</h5>
-                            <p class="text-sm text-gray-600">Weather APIs, satellite imagery, IoT sensor integration</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm">
-                            <h5 class="font-semibold text-gray-800">📱 Cross-Platform</h5>
-                            <p class="text-sm text-gray-600">Progressive web app works on any device, offline capable</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm">
-                            <h5 class="font-semibold text-gray-800">🔒 Privacy-First</h5>
-                            <p class="text-sm text-gray-600">Local data processing, encrypted communications</p>
-                        </div>
-                    </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="text-2xl font-bold mb-4">🌱 CropWise AI</div>
+                <p class="text-gray-400 mb-4">Empowering farmers with
+                    intelligent agriculture solutions</p>
+                <div class="text-sm text-gray-500">
+                    Built for Hackathon 2024 • Scalable • Accessible • Impactful
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="gradient-bg text-white py-20">
-        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-6">Ready to Transform Agriculture?</h2>
-            <p class="text-xl mb-8">Join thousands of farmers already using AI to increase their productivity and sustainability.</p>
-            <div class="flex justify-center space-x-4">
-                <button class="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">Start Free Trial</button>
-                <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">Contact Team</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="text-2xl font-bold mb-4">🌱 Crop Enhance-AI</div>
-            <p class="text-gray-400 mb-4">Empowering farmers with intelligent agriculture solutions</p>
-            <div class="text-sm text-gray-500">
-                Built for Hackathon 2025 • Scalable • Accessible • Impactful
-            </div>
-        </div>
-    </footer>
+        </footer>
 <script src="script.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'986c972c641ca6b9',t:'MTc1OTE2MDU0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+        <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'986cb51a2671a803',t:'MTc1OTE2MTc3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
