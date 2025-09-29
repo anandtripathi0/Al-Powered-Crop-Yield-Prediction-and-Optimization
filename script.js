@@ -126,24 +126,124 @@
         }
         
         function updateWeatherForecast() {
-            const weatherOptions = [
-                { sunny: 3, rainy: 2, cloudy: 2 },
-                { sunny: 4, rainy: 1, cloudy: 2 },
-                { sunny: 2, rainy: 3, cloudy: 2 },
-                { sunny: 5, rainy: 1, cloudy: 1 }
-            ];
+            const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            const weatherIcons = ['☀️', '🌧️', '☁️', '⛈️', '🌤️', '🌦️'];
+            const weatherContainer = document.getElementById('weatherForecast');
             
-            const weather = weatherOptions[Math.floor(Math.random() * weatherOptions.length)];
-            const weatherElement = document.querySelector('.bg-gray-50 .flex.justify-between');
-            
-            if (weatherElement) {
-                weatherElement.innerHTML = `
-                    <span>☀️ Sunny (${weather.sunny} days)</span>
-                    <span>🌧️ Rain (${weather.rainy} days)</span>
-                    <span>☁️ Cloudy (${weather.cloudy} days)</span>
-                `;
+            if (weatherContainer) {
+                weatherContainer.innerHTML = days.map(day => {
+                    const icon = weatherIcons[Math.floor(Math.random() * weatherIcons.length)];
+                    const temp = Math.floor(Math.random() * 15) + 20; // 20-35°C
+                    return `
+                        <div class="text-center p-2 bg-white bg-opacity-20 rounded">
+                            <div>${day}</div>
+                            <div class="text-lg">${icon}</div>
+                            <div>${temp}°C</div>
+                        </div>
+                    `;
+                }).join('');
             }
         }
+        
+        // Chatbot functionality
+        function toggleChatbot() {
+            const chatbot = document.getElementById('chatbot');
+            const chatToggle = document.getElementById('chatToggle');
+            
+            if (chatbot.classList.contains('hidden')) {
+                chatbot.classList.remove('hidden');
+                chatbot.classList.add('flex');
+                chatToggle.style.display = 'none';
+            } else {
+                chatbot.classList.add('hidden');
+                chatbot.classList.remove('flex');
+                chatToggle.style.display = 'block';
+            }
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Generate AI response
+            setTimeout(() => {
+                hideTypingIndicator();
+                const response = generateAIResponse(message);
+                addMessage(response, 'ai');
+            }, 1500);
+        }
+        
+        function addMessage(message, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            
+            if (sender === 'user') {
+                messageDiv.className = 'bg-teal-500 text-white p-3 rounded-lg max-w-xs ml-auto';
+            } else {
+                messageDiv.className = 'bg-gray-100 p-3 rounded-lg max-w-xs';
+            }
+            
+            messageDiv.innerHTML = `<p class="text-sm">${message}</p>`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function showTypingIndicator() {
+            const chatMessages = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typingIndicator';
+            typingDiv.className = 'bg-gray-100 p-3 rounded-lg max-w-xs typing-indicator';
+            typingDiv.innerHTML = '<p class="text-sm">🤖 AI is thinking...</p>';
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+        
+        function generateAIResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('yield') || lowerMessage.includes('production')) {
+                return '📊 Based on current conditions, I predict a 12-15% yield increase with proper irrigation and fertilization. Would you like specific recommendations for your crop type?';
+            } else if (lowerMessage.includes('weather') || lowerMessage.includes('rain') || lowerMessage.includes('temperature')) {
+                return '🌤️ The 7-day forecast shows mixed conditions. I recommend adjusting irrigation based on rainfall predictions. Temperatures will range 22-30°C this week.';
+            } else if (lowerMessage.includes('irrigation') || lowerMessage.includes('water')) {
+                return '💧 Smart irrigation tip: Reduce watering by 10-15% during high humidity days. Monitor soil moisture levels and adjust based on weather forecasts.';
+            } else if (lowerMessage.includes('fertilizer') || lowerMessage.includes('nutrients')) {
+                return '🌱 For optimal growth, apply nitrogen-rich fertilizer during vegetative stage. Phosphorus is crucial during flowering. I can provide specific NPK ratios for your crop.';
+            } else if (lowerMessage.includes('pest') || lowerMessage.includes('disease')) {
+                return '🐛 Current pest risk is moderate. Monitor for common pests like aphids and caterpillars. Early detection is key - inspect plants weekly and use integrated pest management.';
+            } else if (lowerMessage.includes('price') || lowerMessage.includes('market')) {
+                return '💰 Market analysis shows favorable prices for your crop this season. Consider timing your harvest for peak market demand to maximize profits.';
+            } else if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+                return '👋 Hello! I\'m here to help optimize your farming operations. Ask me about crop yields, weather impacts, irrigation, or pest management!';
+            } else {
+                return '🤖 I can help with crop yield predictions, weather analysis, irrigation optimization, pest management, and market insights. What specific farming challenge can I assist you with?';
+            }
+        }
+        
+        // Add Enter key support for chat
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('chatInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
         
         function showSuccessMessage() {
             // Create temporary success notification
